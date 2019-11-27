@@ -1,6 +1,6 @@
 <template lang="html">
-  <div>
-  <div id="menu">
+  <div id="main-block">
+  <div id="menu-item">
     <label for="country-select">Select a Country: </label>
     <select id="country-select" v-on:change="handleEvent" v-model="chosenCountry">
       <option disabled value="">Select Country</option>
@@ -40,5 +40,28 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+
+#main-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1rem 1rem;
+  padding: 1rem 1rem;
+  border: 1px solid #20437c;
+  border-radius: 5%;
+  display: inline-block;
+  background-color: #21A1D3
+
+}
+#search-bar {
+  margin: 0.5rem 0.5rem;
+  padding: 0.5rem 0.5rem;
+}
+
+#menu-item {
+  margin: 0.5rem 0.5rem;
+  padding: 0.5rem 0.5rem;
+}
 
 </style>

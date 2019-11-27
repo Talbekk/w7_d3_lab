@@ -1,5 +1,5 @@
 <template lang="html">
-<div>
+<div id="body">
 <h1>Countries:</h1>
 <div class="main-container">
 <section id="chosen-country">
@@ -52,13 +52,13 @@ export default {
 h1 {
   display: flex;
   justify-content: center;
+  background-color: #21A1D3
 }
 
  .main-container{
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    justify-content: space-between;
    align-items: center;
  }
-
 </style>
