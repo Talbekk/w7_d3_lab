@@ -27,7 +27,8 @@ export default {
     .then(countries => this.countries = countries)
 
     eventBus.$on('country-selected', (country) => {
-      this.selectedCountry = country;
+      const result = this.countries.find(nation => nation.name === country)
+      this.selectedCountry = result
     })
   },
   components:{
