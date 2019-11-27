@@ -2,8 +2,12 @@
 <div>
 <h1>Countries:</h1>
 <div class="main-container">
-<countries-list :countries='countries'></countries-list>
+<section id="chosen-country">
 <country-info :country='selectedCountry'></country-info>
+</section>
+<section id="country-selector">
+<countries-list :countries='countries'></countries-list>
+</section>
 </div>
 </div>
 </template>
@@ -31,6 +35,14 @@ export default {
       this.selectedCountry = result
     })
   },
+  computed: {
+  eventBus.$on('country-typed', (state) => {
+    const result = this.countries.filter(nation => nation.name.includes(state))
+    if (result.length === 1) {
+     this.selectedCountry = result
+    }
+  })
+},
   components:{
     "countries-list" : CountriesList,
     "country-info" : CountryInfo
@@ -39,9 +51,16 @@ export default {
 </script>
 
 <style lang="css" scoped>
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
  .main-container{
    display: flex;
+   flex-direction: column;
    justify-content: space-between;
+   align-items: center;
  }
 
 </style>
