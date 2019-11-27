@@ -34,15 +34,13 @@ export default {
       const result = this.countries.find(nation => nation.name === country)
       this.selectedCountry = result
     })
+    eventBus.$on('country-typed', (country) => {
+      const result = this.countries.filter(nation => nation.name.includes(country))
+      if (result.length === 1) {
+       this.selectedCountry = result[0]
+      }
+    })
   },
-  computed: {
-  eventBus.$on('country-typed', (state) => {
-    const result = this.countries.filter(nation => nation.name.includes(state))
-    if (result.length === 1) {
-     this.selectedCountry = result
-    }
-  })
-},
   components:{
     "countries-list" : CountriesList,
     "country-info" : CountryInfo
